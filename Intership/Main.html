@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temperature Converter</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="container">
+    <h1 style="text-align: center; padding: 25px; font-size: xxx-large;">Temperature Converter</h1><br>
+
+    <label for="celsiusInput" style="text-align: start;font-size: 2.1vh;">Enter Temperature in Celsius:</label>
+    <input type="number" id="celsiusInput"><br>
+    <button onclick="convertToCelsius()">Convert to Fahrenheit</button><br>
+    <button onclick="clearCelsiusInput()">Clear Celsius</button> <!-- Add Clear button for Celsius -->
+
+    <br>
+
+    <label for="fahrenheitInput" style="text-align: start;font-size: 2.1vh;">Enter Temperature in Fahrenheit:</label>
+    <input type="number" id="fahrenheitInput"><br>
+    <button onclick="convertToFahrenheit()">Convert to Celsius</button><br>
+    <button onclick="clearFahrenheitInput()">Clear Fahrenheit</button> <!-- Add Clear button for Fahrenheit -->
+
+    <br>
+
+    <b><p id="result"></p></b>
+    </div>
+    <script>
+        function convertToCelsius() {
+            const celsiusInput = document.getElementById("celsiusInput").value;
+            const fahrenheit = (celsiusInput * 9/5) + 32;
+            document.getElementById("result").textContent = `${celsiusInput} Celsius = ${fahrenheit.toFixed(2)} Fahrenheit`;
+        }
+
+        function convertToFahrenheit() {
+            const fahrenheitInput = document.getElementById("fahrenheitInput").value;
+            const celsius = (fahrenheitInput - 32) * 5/9;
+            document.getElementById("result").textContent = `${fahrenheitInput} Fahrenheit = ${celsius.toFixed(2)} Celsius`;
+        }
+
+        function clearCelsiusInput() {
+            document.getElementById("celsiusInput").value = "";
+        }
+
+        function clearFahrenheitInput() {
+            document.getElementById("fahrenheitInput").value = "";
+        }
+    </script>
+</body>
+</html>
